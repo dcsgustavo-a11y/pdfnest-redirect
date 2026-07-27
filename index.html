@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activating PDF NEST PRO...</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #ffffff;
+      color: #111827;
+      text-align: center;
+    }
+    .card {
+      border: 1px solid #e5e7eb;
+      padding: 32px;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    .spinner {
+      border: 3px solid #f3f3f3;
+      border-top: 3px solid #f59e0b;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      animation: spin 1s linear infinite;
+      margin: 16px auto 0;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+  <script>
+    const EXTENSION_ID = "iplnhilfkippechibcffmpgleobedckj";
+    
+    window.addEventListener("DOMContentLoaded", () => {
+      setTimeout(() => {
+        window.location.href = `chrome-extension://${EXTENSION_ID}/ui/pages/success.html`;
+      }, 500);
+    });
+  </script>
+</head>
+<body>
+  <div class="card">
+    <h2>🎉 Payment Confirmed!</h2>
+    <p>Redirecting back to PDF NEST to activate your PRO plan...</p>
+    <div class="spinner"></div>
+  </div>
+</body>
+</html>
