@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Activating PDF NEST PRO...</title>
+  <title>PDF NEST PRO - Success</title>
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -22,36 +22,30 @@
       padding: 32px;
       border-radius: 12px;
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
     }
-    .spinner {
-      border: 3px solid #f3f3f3;
-      border-top: 3px solid #f59e0b;
-      border-radius: 50%;
-      width: 24px;
-      height: 24px;
-      animation: spin 1s linear infinite;
-      margin: 16px auto 0;
-    }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+    .btn {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 12px 24px;
+      background-color: #f59e0b;
+      color: #ffffff;
+      font-weight: 700;
+      border-radius: 8px;
+      text-decoration: none;
     }
   </style>
-  <script>
-    const EXTENSION_ID = "iplnhilfkippechibcffmpgleobedckj";
-    
-    window.addEventListener("DOMContentLoaded", () => {
-      setTimeout(() => {
-        window.location.href = `chrome-extension://${EXTENSION_ID}/ui/pages/success.html`;
-      }, 500);
-    });
-  </script>
 </head>
 <body>
   <div class="card">
     <h2>🎉 Payment Confirmed!</h2>
-    <p>Redirecting back to PDF NEST to activate your PRO plan...</p>
-    <div class="spinner"></div>
+    <p>Your PDF NEST PRO Plan is active! You can now close this tab and open your PDF NEST extension.</p>
   </div>
+  <script>
+    const EXTENSION_ID = "iplnhilfkippechibcffmpgleobedckj";
+    if (window.chrome && chrome.runtime && chrome.runtime.sendMessage) {
+      chrome.runtime.sendMessage(EXTENSION_ID, { action: "ACTIVATE_PRO_STRIPE" });
+    }
+  </script>
 </body>
 </html>
